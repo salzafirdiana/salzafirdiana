@@ -12,31 +12,7 @@
 */
 
 Route::get('/welcome', function () {
-echo "Welcome";
-});
-
-Route::get('/index', function () {
-echo "Uji Coba route dengan method GET";
-});
-
-Route::post('/store', function () {
-// sintak untuk menyimpan data
-});
-
-Route::put('/update', function () {
-// sintak untuk upadte data
-});
-
-Route::delete('/delete', function () {
-// sintak untuk menghapus data
-});
-
-Route::match(['get','post'],'/welcome' function () {
-//
-});
-
-Route::any('/welcome' function () {
-//
+    return view('welcome');
 });
 
 Route::get('/show/{id}', function ($id) {
@@ -47,7 +23,7 @@ Route::get('/show/{id?}', function ($id=1) {
 echo "Nilai Parameter Adalah ".$id;
 });
 
-Route::get('/edit/{nama}', function ($nama) {
+Route::get('/edit/{salza}', function ($nama) {
 echo "Nilai Parameter Adalah ".$nama;
 })->where('nama','[A-Za-z]+');
 
@@ -61,3 +37,10 @@ echo "Route diakses menggunakan nama";
 
 Route::get('/produk', 'produkController@index');
 
+Route::get('/produk/show', 'produkController@show');
+
+Route::get('/halaman', function(){
+$title = 'Harry Potter';
+$konten = 'harry potter and the deathly hallows: part 2';
+return view('konten.halaman',compact('title','konten'));
+});
